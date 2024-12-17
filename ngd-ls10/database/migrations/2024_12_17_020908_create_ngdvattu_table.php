@@ -11,14 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('ngdnhacc', function (Blueprint $table) {
+        Schema::create('ngdvattu', function (Blueprint $table) {
             // $table->id();
             // $table->timestamps();
-            $table->string('ngdMaNCC')->primary;
-            $table->string('ngdTenNCC');
-            $table->string('ngdDiaChi');
-            $table->string('ngdDienThoai');
-
+            $table->string('ngdMaVTu')->primary();
+            $table->string('ngdTenVtu')->unique();
+            $table->string('ngdDviTinh');
+            $table->float('ngdPhanTram');
         });
     }
 
@@ -27,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('ngdnhacc');
+        Schema::dropIfExists('ngdvattu');
     }
 };

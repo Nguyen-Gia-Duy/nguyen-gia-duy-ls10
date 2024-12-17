@@ -11,8 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('ngdnhacc', function (Blueprint $table) {
-            //
+        Schema::create('ngdnhacc', function (Blueprint $table) {
+            // $table->id();
+            // $table->timestamps();
+            $table->string('ngdMaNCC')->primary();
+            $table->string('ngdTenNCC');
+            $table->string('ngdDiaChi');
+            $table->string('ngdDienThoai');
+
         });
     }
 
@@ -21,9 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('ngdnhacc', function (Blueprint $table) {
-            //
-            $table->string('ngdemail');
-        });
+        Schema::dropIfExists('ngdnhacc');
     }
 };

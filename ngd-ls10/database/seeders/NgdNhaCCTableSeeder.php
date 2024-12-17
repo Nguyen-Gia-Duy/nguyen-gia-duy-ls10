@@ -15,14 +15,16 @@ class NgdNhaCCTableSeeder extends Seeder
     {
         //
         $faker=Faker::create();
-        foreach(range(1,100) as $index){
+        foreach(range(1,100)as$index){
             DB::table('ngdnhacc')->insert([
-                'ngdNhaCC'=>$faker->uuid(),
-                'ngdTenNCC'=>$faker->sentence(5),
+                'ngdMaNCC'=>$faker->uuid(),
+                //'MaNCC'=>$faker->word(15),
+                'ngdTenNCC'=>$faker->sentences(5),
                 'ngdDiaChi'=>$faker->address(),
-                'ngdDienThoai'=>$faker->phoneNumber(),
+                'ngdDienThoai'=>$faker->phoneNumber(10),
                 'ngdemail'=>$faker->email(),
                 'ngdstatus'=>$faker->boolean()
+
             ]);
         }
     }

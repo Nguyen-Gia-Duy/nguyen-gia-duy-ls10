@@ -1,7 +1,7 @@
 <?php
-
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\NgdNhaCCController;
+use Illuminate\Support\Facades\DB;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+Route::get('ngd-nhaccs',[NgdNhaCCController::class,'list'])->name('ngdnhacc.list');
+Route::get('ngd-vattus',[NgdVattuController::class,'list'])->name('ngdvattu.list');

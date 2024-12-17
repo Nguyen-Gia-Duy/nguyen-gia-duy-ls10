@@ -11,14 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('ngdvattu', function (Blueprint $table) {
+        Schema::create('ngddondh', function (Blueprint $table) {
             // $table->id();
-            $table->string('ngdMaVTu')->primary();
-            $table->string('ngdTenVtu')->unique();
-            $table->string('ngdDvTinh');
-            $table->float('ngdPhanTram');
-
             // $table->timestamps();
+            $table->string('ngdSoDH')->primary();
+            $table->date('ngdNgayDH');
+            $table->string('ngdMaNCC');
+            $table->foreign('ngdMaNCC')->references('ngdMaNCC')->on('ngdnhacc');
+
         });
     }
 
@@ -26,7 +26,7 @@ return new class extends Migration
      * Reverse the migrations.
      */
     public function down(): void
-    {
-        Schema::dropIfExists('ngdvattu');
+    {   
+        Schema::dropIfExists('ngddondh');
     }
 };
